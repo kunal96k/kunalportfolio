@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html class="no-js ss-preload" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>kunal.dev</title>
+    <meta name="description" content="Full Stack Java Developer Portfolio - Kunal Patil">
+    <meta name="author" content="Kunal Patil">
+    
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+          
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/k-letter-logo-design.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/k-letter-logo-design.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/k-letter-logo-design.svg">
+    <link rel="manifest" href="site.webmanifest">
+
+    <style>
+        .navbar-link {
+            position: relative;
+            padding: 8px 15px;
+            transition: all 0.3s ease;
+        }
+        .navbar-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: #ff4d4d;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .navbar-link:hover::after {
+            width: 100%;
+        }
+        .social-icon {
+            font-size: 1.2em;
+            margin-right: 8px;
+            transition: transform 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+        .skill-item {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            margin: 0;
+            font-size: 0.95em;
+            color: #fff;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        .skill-item i {
+            margin-right: 8px;
+            color: #ff4d4d;
+            font-size: 1.1em;
+        }
+        .contact-icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+            color: #ff4d4d;
+        }
+        
+        /* Timeline/Resume improvements */
+        .timeline {
+            border-left: 3px solid #ff4d4d;
+            padding-left: 20px;
+        }
+        .timeline__block {
+            margin-bottom: 32px;
+            position: relative;
+        }
+        .timeline__bullet {
+            background: #ff4d4d;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            position: absolute;
+            left: -30px;
+            top: 0px;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 8px rgba(255,77,77,0.10);
+        }
+        .timeline__header {
+            margin-bottom: 2px;
+        }
+        .timeline__title {
+            font-weight: bold;
+            font-size: 1.08em;
+            margin-bottom: 2px;
+        }
+        .timeline__meta {
+            color: #555;
+            font-size: 1em;
+        }
+        .timeline__timeframe {
+            font-size: 0.95em;
+            color: #888;
+        }
+        .timeline__desc {
+            margin-top: 8px;
+            color: #444;
+        }
+        @media (max-width: 900px) {
+            .skills-list { flex-direction: column; align-items: center; }
+        }
+
+        /* Freelance Services Styles */
+        .service-item {
+            background: rgba(0, 0, 0, .20);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #ff4d4d;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .service-item:hover::before {
+            transform: scaleX(1);
+        }
+        .service-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(255,77,77,0.15);
+        }
+        .service-icon {
+            font-size: 3em;
+            color: #ff4d4d;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .service-item:hover .service-icon {
+            transform: scale(1.1);
+        }
+        .service-item h3 {
+            font-size: 1.4em;
+            margin-bottom: 1.2rem;
+            color: #d1cccc;
+            font-weight: 600;
+        }
+        .service-item p {
+            color: #666;
+            line-height: 1.8;
+            margin: 0;
+            font-size: 1.05em;
+        }
+        .service-features {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+        .service-features ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+        .service-features li {
+            margin-bottom: 0.5rem;
+            color: #555;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+        }
+        .service-features li::before {
+            content: '✓';
+            color: #ff4d4d;
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+        .services-list {
+            margin-top: 2rem;
+        }
+        .services-list .column {
+            margin-bottom: 2rem;
+        }
+
+        /* Modal Popup Fixes */
+        .modal-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90vw;
+            min-width: 320px;
+            max-width: 1000px;
+            height: auto;
+            min-height: 400px;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 3rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+        }
+        .modal-popup img {
+            width: 100%;
+            height: auto;
+            min-height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .modal-popup__desc {
+            margin-bottom: 2rem;
+            flex: 1;
+            min-width: 0; /* Prevent flex item from overflowing */
+        }
+        .modal-popup__desc h5 {
+            font-size: clamp(1.4em, 4vw, 1.6em);
+            margin-bottom: 1.2rem;
+            color: #333;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+        .modal-popup__desc p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: clamp(0.95em, 3vw, 1.05em);
+            max-width: 800px;
+        }
+        .modal-popup__cat {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            max-width: 800px;
+        }
+        .modal-popup__cat li {
+            display: inline-block;
+            background: #f8f8f8;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-size: clamp(0.85em, 2.5vw, 0.95em);
+            color: #555;
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .modal-popup__details {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.9rem 1.8rem;
+            background: #ff4d4d;
+            color: #fff;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            margin-right: 1rem;
+            font-size: clamp(0.9em, 2.5vw, 1em);
+            white-space: nowrap;
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+        }
+        .modal-overlay.is-visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Modal Close Button */
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f8f8f8;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+        }
+        .modal-close:hover {
+            background: #ff4d4d;
+            transform: rotate(90deg);
+        }
+        .modal-close::before,
+        .modal-close::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 2px;
+            background: #333;
+            transition: all 0.3s ease;
+        }
+        .modal-close:hover::before,
+        .modal-close:hover::after {
+            background: #fff;
+        }
+        .modal-close::before {
+            transform: rotate(45deg);
+        }
+        .modal-close::after {
+            transform: rotate(-45deg);
+        }
+
+        .modal-popup__cat li:hover {
+            background: #fff;
+            border-color: #ff4d4d;
+            color: #ff4d4d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255,77,77,0.1);
+        }
+
+        .modal-popup__details:hover {
+            background: #ff3333;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255,77,77,0.2);
+        }
+        .modal-popup__details i {
+            margin-right: 0.5rem;
+        }
+
+        .modal-popup__desc h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #ff4d4d;
+        }
+
+        /* Responsive Adjustments */
+        @media screen and (max-width: 768px) {
+            .modal-popup {
+                padding: 2rem;
+                width: 95%;
+                max-height: 90vh;
+            }
+            .modal-popup__cat {
+                gap: 0.5rem;
+            }
+            .modal-popup__cat li {
+                padding: 0.5rem 1rem;
+            }
+            .modal-close {
+                top: 1rem;
+                right: 1rem;
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .modal-popup {
+                padding: 1.5rem;
+                min-height: 300px;
+            }
+            .modal-popup img {
+                min-height: 150px;
+            }
+            .modal-popup__details {
+                padding: 0.8rem 1.5rem;
+            }
+        }
+
+        /* Modal Animation */
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -48%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .modal-popup {
+            animation: modalFadeIn 0.4s ease-out forwards;
+        }
+
+        /* Animation Classes */
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        .tick-animation {
+            position: relative;
+            padding-left: 25px;
+        }
+        .tick-animation::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ff4d4d;
+            animation: tickPop 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes tickPop {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Service Features Animation */
+        .service-features li {
+            opacity: 0;
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+        .service-features li:nth-child(1) { animation-delay: 0.1s; }
+        .service-features li:nth-child(2) { animation-delay: 0.2s; }
+        .service-features li:nth-child(3) { animation-delay: 0.3s; }
+        .service-features li:nth-child(4) { animation-delay: 0.4s; }
+
+        /* Enhanced Intro Text Styles */
+        .text-huge-title {
+            font-size: 4.2rem;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .text-huge-title br {
+            display: block;
+            content: "";
+            margin: 0.5rem 0;
+        }
+        .intro-name {
+           color: #e74c3c;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            background: linear-gradient(45deg, #cf765b, #db4734);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientFlow 8s ease infinite;
+        }
+        .intro-role {
+            color: #34495e;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            margin: 1rem 0;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.3s;
+        }
+        .intro-subrole {
+            color: #34495e;
+            font-weight: 500;
+            font-size: 0.85em;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.6s;
+        }
+
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main Skills & Resume Section */
+        .main-skills-section {
+            background: #fff;
+            border-radius: 12px;
+            margin: 2rem 0 3rem 0;
+            padding: 2.5rem 1rem 2rem 1rem;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+        }
+        .skills-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem 2rem;
+            justify-content: space-between;
+            margin-bottom: 2.5rem;
+        }
+        .skill-category {
+            flex: 1 1 250px;
+            min-width: 220px;
+            max-width: 340px;
+        }
+        .skill-category h3 {
+            font-size: 1.1em;
+            color: #2d3a4b;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+        .skills-logos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.1rem 1.1rem;
+        }
+        .skill-logo {
+            background: #f8f8f8;
+            border-radius: 8px;
+            padding: 0.7rem 0.9rem;
+            font-size: 2em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            position: relative;
+        }
+        .skill-logo:hover {
+            transform: translateY(-4px) scale(1.08);
+            box-shadow: 0 6px 18px rgba(255,77,77,0.13);
+        }
+        
+        .resume-download-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: #ff4d4d;
+            color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 15px rgba(255, 77, 77, 0.2);
+            font-size: 1.1em;
+        }
+        .resume-download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 77, 77, 0.3);
+            background: #ff3333;
+        }
+        .resume-download-btn i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        @media (max-width: 1200px) {
+            .skills-categories { gap: 2rem 1rem; }
+            .skill-category { max-width: 300px; }
+        }
+        @media (max-width: 900px) {
+            .skills-categories { flex-direction: column; gap: 2.5rem 0; }
+            .skill-category { max-width: 100%; }
+        }
+        @media (max-width: 600px) {
+            .main-skills-section { padding: 1.2rem 0.2rem; }
+            .skills-categories { gap: 1.5rem 0; }
+            .skill-logo { font-size: 1.3em; padding: 0.5rem 0.6rem; }
+        }
+
+        /* Main Skills Section: Logo Grid Only */
+        .skills-logo-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 3.2rem 1.2rem;
+            justify-items: center;
+            align-items: center;
+            margin: 2.5rem 0 1.5rem 0;
+        }
+        .skill-logo {
+            font-size: 4em;
+            transition: transform 0.35s cubic-bezier(.4,2,.6,1), filter 0.25s, box-shadow 0.25s;
+            cursor: pointer;
+            background: none !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+            margin: 0.3em 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            will-change: transform, filter;
+        }
+        /* Remove hover effect, only apply effect when .skill-name.show is active */
+        .skill-logo:hover, .skill-logo:focus {
+            /* No scale or shadow on hover */
+            transform: none;
+            filter: none;
+            z-index: 1;
+        }
+        .skill-logo .skill-name.show ~ i,
+        .skill-logo .skill-name.show ~ svg {
+            /* No effect, but selector for clarity */
+        }
+        .skill-logo .skill-name.show {
+            /* When name is shown, apply scale/shadow to logo */
+            /* Instead, apply to .skill-logo when .skill-name.show is present */
+        }
+        .skill-logo:has(.skill-name.show) {
+            transform: scale(1.22) translateY(-8px);
+            filter: drop-shadow(0 8px 18px rgba(255,77,77,0.18));
+            z-index: 2;
+        }
+        .skill-name {
+            display: block;
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            left: 50%;
+            top: 110%;
+            transform: translateX(-50%) translateY(12px) scale(0.95);
+            background: rgba(34,34,34,0.85);
+            color: #fff;
+            font-size: 2rem;
+            padding: 0.32em 1.1em;
+            border-radius: 12px;
+            white-space: nowrap;
+            transition: opacity 0.28s cubic-bezier(.4,2,.6,1), transform 0.28s cubic-bezier(.4,2,.6,1), background 0.2s;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+            backdrop-filter: blur(4px);
+            border: 1px solid #ff4d4d33;
+        }
+        .skill-name.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0) scale(1);
+        }
+        @media (max-width: 1200px) {
+            .skills-logo-grid { grid-template-columns: repeat(3, 1fr); }
+            .skill-logo { font-size: 2.7em; }
+        }
+        @media (max-width: 700px) {
+            .skills-logo-grid { grid-template-columns: repeat(2, 1fr); }
+            .skill-logo { font-size: 2.1em; }
+        }
+        @media (max-width: 500px) {
+            .skills-logo-grid { gap: 2.2rem 0.7rem; }
+            .skill-logo { font-size: 1.7em; }
+        }
+
+        /* Resume View Button and Popup */
+        
+        .resume-view-btn i {
+            font-size: 1.3em;
+            margin-right: 0.5em;
+        }
+                .resume-popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.45);
+            z-index: 1001;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .resume-popup {
+            display: none;
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0.95);
+            min-width: 320px;
+            max-width: 95vw;
+            width: 480px;
+            background: rgba(255,255,255,0.98);
+
+            box-shadow: 0 10px 40px rgba(0,0,0,0.18);
+            z-index: 1002;
+            padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            text-align: center;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .resume-popup.show, .resume-popup-overlay.show {
+            display: block;
+            opacity: 1;
+        }
+        .resume-popup.show {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .resume-popup-close {
+            position: absolute;
+            top: 1.1rem;
+            right: 1.1rem;
+            border: none;
+            width: 44px;
+            height: 44px;
+            font-size: 2.1em;
+            color: var(--color-btn-text);
+            cursor: pointer;
+            transition: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        /* Remove hover/focus effect for close button */
+        .resume-popup-close:focus {
+            outline: 2px solid var(--color-btn-hover);
+            outline-offset: 2px;
+        }
+
+        .resume-popup-img {
+            width: 100%;
+            max-width: 380px;
+            border-radius: 10px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+            margin-bottom: 1.2rem;
+        }
+        .resume-popup-fullview {
+            display: inline-block;
+            margin-top: 0.7rem;
+            padding: 1.1rem 2.5rem;
+            background: var(--color-btn);
+            color: var(--color-btn-text);
+           
+            font-weight: 700;
+            font-size: 1.15em;
+            box-shadow: 0 6px 24px rgba(255,77,77,0.18);
+            border: 1px solid var(--color-btn);
+            text-decoration: none;
+            transition: all 0.25s cubic-bezier(.4,2,.6,1);
+            cursor: pointer;
+        }
+        .resume-popup-fullview:focus{
+            background-color: var(--color-btn-hover);
+            border-color: black;
+            color: var(--color-btn-hover-text);
+            outline: 0;
+            transform: scale(1.04) translateY(-2px);
+            box-shadow: 0 10px 32px rgba(255,77,77,0.22);
+        }
+        @media (max-width: 600px) {
+            .resume-popup-close { width: 36px; height: 36px; font-size: 1.5em; }
+            .resume-popup-fullview { font-size: 1em; padding: 0.8rem 1.2rem; }
+        }
+
+        /* Swiper pagination (carousel radio controls) styling */
+        .swiper-pagination {
+            position: relative;
+            margin-top: 2.5rem;
+            text-align: center;
+            z-index: 10;
+        }
+        .swiper-pagination-bullet {
+            width: 14px;
+            height: 14px;
+            display: inline-block;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid #ff4d4d;
+            opacity: 1;
+            margin: 0 7px;
+            transition: background 0.2s, border-color 0.2s, transform 0.2s;
+            box-shadow: 0 2px 8px rgba(255,77,77,0.08);
+            cursor: pointer;
+        }
+        .swiper-pagination-bullet-active {
+            background: #ff4d4d;
+            border-color: #ff4d4d;
+            transform: scale(1.18);
+        }
+        @media (max-width: 600px) {
+            .swiper-pagination-bullet { width: 10px; height: 10px; margin: 0 4px; }
+        }
+
+        .resume-popup-close{
+            background: transparent;
+        }
+
+        .resume-popup-close:hover{
+            background: transparent;
+        }
+
+        .resume-popup-close:focus{
+            background: transparent;    
+        }
+    </style>
+
+</head>
+
+<body id="top">
+
+
+    <!-- # preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="animate__animated animate__fadeIn">
+        </div>
+    </div>
+
+
+    <!-- # page wrap
+    ================================================== -->
+    <div class="s-pagewrap">
+
+        <div class="circles">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+
+        <!-- ## site header 
+        ================================================== -->
+        <header class="s-header">
+
+            <div class="header-mobile">
+                <span class="mobile-home-link"><a href="index.html">Kunal.</a></span>
+                <a class="mobile-menu-toggle" href="#0"><span>Menu</span></a>
+            </div>
+
+            <div class="row wide main-nav-wrap">
+                <nav class="column lg-12 main-nav">
+                    <ul>
+                        <li><a href="index.html" class="home-link navbar-link"><i class="fas fa-code"></i> Kunal.</a></li>
+                        <li class="current"><a href="#intro" class="smoothscroll navbar-link"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#about" class="smoothscroll navbar-link"><i class="fas fa-user"></i> About</a></li>
+                        <li><a href="#works" class="smoothscroll navbar-link"><i class="fas fa-laptop-code"></i> Projects</a></li>
+                        <li><a href="#contact" class="smoothscroll navbar-link"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </header> <!-- end s-header -->
+
+
+        <!-- ## main content
+        ==================================================- -->
+        <main class="s-content">
+
+
+            <!-- ### intro
+            ================================================== -->
+            <section id="intro" class="s-intro target-section">
+
+                <div class="row intro-content wide">
+
+                    <div class="column">
+                        <div class="text-pretitle with-line animate__animated animate__fadeInUp">
+                            Full Stack Developer
+                        </div>
+
+                        <h1 class="text-huge-title animate__animated animate__fadeInUp">
+                            <span class="intro-name">KUNAL PATIL</span>
+                            <span class="intro-role">Full Stack Developer</span>
+                            <span class="intro-subrole">& Freelance Consultant</span>
+                        </h1>
+                        <div class="animate__animated animate__fadeInUp" style="margin-top: 1.5rem;">
+                            <a href="mailto:kunalpatil192001@gmail.com" class="btn btn--medium"><i class="fas fa-envelope"></i> kunalpatil192001@gmail.com</a>
+                            <a href="https://linkedin.com/in/kunal-patil-939753181" target="_blank" rel="noopener" class="btn btn--medium"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                            <a href="https://github.com/kunal96k" target="_blank" rel="noopener" class="btn btn--medium"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+
+                </div> <!-- end intro content -->
+
+                <a href="#about" class="intro-scrolldown smoothscroll animate__animated animate__bounce">
+                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z"/></svg>
+                </a>
+
+            </section> <!-- end s-intro -->
+
+
+            <!-- ### about
+            ================================================== -->
+            <section id="about" class="s-about target-section">
+
+
+                <div class="row about-info wide" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="column lg-6 md-12 about-info__pic-block" data-aos="fade-right" data-aos-delay="200">
+                        <img src="images/about-photo.jpg" 
+                             srcset="images/about-photo.jpg 1x, images/about-photo@2x.jpg 2x" alt="Kunal Patil" class="about-info__pic">
+                    </div>
+
+                    <div class="column lg-6 md-12" data-aos="fade-left" data-aos-delay="400">
+                        <div class="about-info__text">
+                            <h2 class="text-pretitle with-line">
+                                Summary
+                            </h2>
+                            <p class="attention-getter">
+                                Passionate <b>Full Stack Java Developer</b> and <b>Freelance Consultant</b> with hands-on experience in building robust backend systems using <b>Java, Spring Boot, Hibernate, and MySQL</b>. I specialize in delivering scalable web applications and providing expert consultation services to businesses of all sizes. With expertise in both development and technical consulting, I help clients transform their ideas into reality while ensuring best practices and optimal performance.
+                            </p>
+                            <a href="#contact" class="btn btn--medium u-fullwidth">Let's Connect</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row about-expertise aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="column lg-12">
+                        <h2 class="text-pretitle">Main Skills</h2>
+                        <div class="skills-logo-grid">
+                            <span class="skill-logo" data-skill="C++" title="C++" data-aos="slide-up" onclick="showSkillName(this)"><i class="devicon-cplusplus-plain colored"></i><span class="skill-name">C++</span></span>
+                            <span class="skill-logo" data-skill="Java" title="Java" data-aos="slide-up" data-aos-delay="50" onclick="showSkillName(this)"><i class="fab fa-java" style="color:#007396;"></i><span class="skill-name">Java</span></span>
+                            <span class="skill-logo" data-skill="Python" title="Python" data-aos="slide-up" data-aos-delay="100" onclick="showSkillName(this)"><i class="fab fa-python" style="color:#3776AB;"></i><span class="skill-name">Python</span></span>
+                            <span class="skill-logo" data-skill="PHP" title="PHP" data-aos="slide-up" data-aos-delay="150" onclick="showSkillName(this)"><i class="fab fa-php" style="color:#777BB4;"></i><span class="skill-name">PHP</span></span>
+                            <span class="skill-logo" data-skill="Spring Boot" title="Spring Boot" data-aos="slide-up" data-aos-delay="200" onclick="showSkillName(this)"><i class="devicon-spring-plain colored"></i><span class="skill-name">Spring Boot</span></span>
+                            <span class="skill-logo" data-skill="Hibernate" title="Hibernate" data-aos="slide-up" data-aos-delay="250" onclick="showSkillName(this)"><i class="devicon-hibernate-plain colored"></i><span class="skill-name">Hibernate</span></span>
+                            <span class="skill-logo" data-skill="Express.js" title="Express.js" data-aos="slide-up" data-aos-delay="300" onclick="showSkillName(this)"><i class="devicon-express-original-wordmark"></i><span class="skill-name">Express.js</span></span>
+                            <span class="skill-logo" data-skill="Node.js" title="Node.js" data-aos="slide-up" data-aos-delay="350" onclick="showSkillName(this)"><i class="fab fa-node-js" style="color:#339933;"></i><span class="skill-name">Node.js</span></span>
+                            <span class="skill-logo" data-skill="CodeIgniter" title="CodeIgniter" data-aos="slide-up" data-aos-delay="400" onclick="showSkillName(this)"><i class="devicon-codeigniter-plain colored"></i><span class="skill-name">CodeIgniter</span></span>
+                            <span class="skill-logo" data-skill="Laravel" title="Laravel" data-aos="slide-up" data-aos-delay="450" onclick="showSkillName(this)"><i class="fab fa-laravel" style="color:#FF2D20;"></i><span class="skill-name">Laravel</span></span>
+                            <span class="skill-logo" data-skill="HTML5" title="HTML5" data-aos="slide-up" data-aos-delay="550" onclick="showSkillName(this)"><i class="fab fa-html5" style="color:#E34F26;"></i><span class="skill-name">HTML5</span></span>
+                            <span class="skill-logo" data-skill="CSS3" title="CSS3" data-aos="slide-up" data-aos-delay="600" onclick="showSkillName(this)"><i class="fab fa-css3-alt" style="color:#1572B6;"></i><span class="skill-name">CSS3</span></span>
+                            <span class="skill-logo" data-skill="Bootstrap" title="Bootstrap" data-aos="slide-up" data-aos-delay="650" onclick="showSkillName(this)"><i class="fab fa-bootstrap" style="color:#7952B3;"></i><span class="skill-name">Bootstrap</span></span>
+                            <span class="skill-logo" data-skill="JavaScript" title="JavaScript" data-aos="slide-up" data-aos-delay="700" onclick="showSkillName(this)"><i class="fab fa-js" style="color:#F7DF1E;"></i><span class="skill-name">JavaScript</span></span>
+                            <span class="skill-logo" data-skill="Git" title="Git" data-aos="slide-up" data-aos-delay="750" onclick="showSkillName(this)"><i class="fab fa-git-alt" style="color:#F05032;"></i><span class="skill-name">Git</span></span>
+                            <span class="skill-logo" data-skill="GitHub" title="GitHub" data-aos="slide-up" data-aos-delay="800" onclick="showSkillName(this)"><i class="devicon-github-original-wordmark"></i><span class="skill-name">GitHub</span></span>
+                            <span class="skill-logo" data-skill="Postman" title="Postman" data-aos="slide-up" data-aos-delay="850" onclick="showSkillName(this)"><i class="devicon-postman-plain colored"></i><span class="skill-name">Postman</span></span>
+                            <span class="skill-logo" data-skill="Oracle" title="Oracle" data-aos="slide-up" data-aos-delay="900" onclick="showSkillName(this)"><i class="devicon-oracle-original colored"></i><span class="skill-name">Oracle</span></span>
+                            <span class="skill-logo" data-skill="MySQL" title="MySQL" data-aos="slide-up" data-aos-delay="950" onclick="showSkillName(this)"><i class="devicon-mysql-plain colored"></i><span class="skill-name">MySQL</span></span>
+                            <span class="skill-logo" data-skill="MongoDB" title="MongoDB" data-aos="slide-up" data-aos-delay="1000" onclick="showSkillName(this)"><i class="devicon-mongodb-plain colored"></i><span class="skill-name">MongoDB</span></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row about-timelines" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="column lg-6 tab-12" data-aos="fade-right" data-aos-delay="200">
+                        <h2 class="text-pretitle">
+                            Experience
+                        </h2>
+                        <div class="timeline">
+                            <div class="timeline__block" style="margin-bottom: 32px;">
+                                <div class="timeline__bullet"></div>
+                                <div class="timeline__header">
+                                    <h4 class="timeline__title" style="font-weight: bold;">A2Z IT HUB Pvt. Ltd., Nashik</h4>
+                                    <h5 class="timeline__meta" style="color: #555;">Full Stack Java Developer Intern</h5>
+                                    <p class="timeline__timeframe" style="font-size: 0.95em; color: #888;">12/2024 - 05/2025</p>
+                                </div>
+                                <div class="timeline__desc" style="margin-top: 8px;">
+                                    <p style="margin-bottom: 0;">A2Z IT HUB Pvt. Ltd. is a Nashik-based IT solutions company specializing in software development, training, and technology consulting. Focused on hands-on learning through real-time projects and internships.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column lg-6 tab-12" data-aos="fade-left" data-aos-delay="400">
+                        <h2 class="text-pretitle">
+                            Education
+                        </h2>
+                        <div class="timeline">
+                            <div class="timeline__block" style="margin-bottom: 32px;">
+                                <div class="timeline__bullet"></div>
+                                <div class="timeline__header">
+                                    <h4 class="timeline__title" style="font-weight: bold;">Mumbai Educational Trust - MET League of Colleges, Nashik</h4>
+                                    <h5 class="timeline__meta" style="color: #555;">Diploma, Electrical Engineering</h5>
+                                    <p class="timeline__timeframe" style="font-size: 0.95em; color: #888;">01/2017 - 12/2020</p>
+                                </div>
+                            </div>
+                            <div class="timeline__block">
+                                <div class="timeline__bullet"></div>
+                                <div class="timeline__header">
+                                    <h4 class="timeline__title" style="font-weight: bold;">Gokhale Education Societies H.P.T. Arts & R.Y.K. Science College, Nashik</h4>
+                                    <h5 class="timeline__meta" style="color: #555;">Bachelor of Engineering - BE, Electrical Engineering</h5>
+                                    <p class="timeline__timeframe" style="font-size: 0.95em; color: #888;">07/2020 - 04/2023</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Freelance Services Section -->
+                <div class="row about-freelance" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="column lg-12">
+                        <h2 class="text-pretitle">Freelance Services</h2>
+                        <div class="row services-list">
+                            <div class="column lg-4 md-6 tab-12" data-aos="fade-up" data-aos-delay="200">
+                                <div class="service-item">
+                                    <i class="fas fa-laptop-code service-icon"></i>
+                                    <h3>Custom Web Development</h3>
+                                    <p>Transform your ideas into powerful web applications with my full-stack development expertise.</p>
+                                    <div class="service-features">
+                                        <ul>
+                                            <li class="tick-animation">Spring Boot & Java Development</li>
+                                            <li class="tick-animation">Responsive Frontend Design</li>
+                                            <li class="tick-animation">Database Integration</li>
+                                            <li class="tick-animation">Performance Optimization</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column lg-4 md-6 tab-12" data-aos="fade-up" data-aos-delay="400">
+                                <div class="service-item">
+                                    <i class="fas fa-database service-icon"></i>
+                                    <h3>Database Solutions</h3>
+                                    <p>Expert database design and optimization services for optimal performance and scalability.</p>
+                                    <div class="service-features">
+                                        <ul>
+                                            <li class="tick-animation">Database Architecture Design</li>
+                                            <li class="tick-animation">Query Optimization</li>
+                                            <li class="tick-animation">Data Migration</li>
+                                            <li class="tick-animation">Security Implementation</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column lg-4 md-6 tab-12" data-aos="fade-up" data-aos-delay="600">
+                                <div class="service-item">
+                                    <i class="fas fa-code-branch service-icon"></i>
+                                    <h3>API Development</h3>
+                                    <p>Build robust and scalable RESTful APIs that power modern web applications.</p>
+                                    <div class="service-features">
+                                        <ul>
+                                            <li class="tick-animation">RESTful API Design</li>
+                                            <li class="tick-animation">API Documentation</li>
+                                            <li class="tick-animation">Integration Services</li>
+                                            <li class="tick-animation">Security & Authentication</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section> <!-- end s-about -->
+
+
+            <!-- ### works
+            ================================================== -->
+            <section id="works" class="s-works target-section">
+
+
+                <div class="row works-portfolio">
+
+                    <div class="column lg-12" data-animate-block>
+
+                        <h2 class="text-pretitle animate__animated animate__fadeInUp" data-animate-el>
+                            Projects
+                        </h2>
+                        <p class="h1 animate__animated animate__fadeInUp" data-animate-el>
+                            Here are some of my recent projects.
+                        </p>
+    
+                        <ul class="folio-list row block-lg-one-half block-stack-on-1000">
+
+                            <li class="folio-list__item column animate__animated animate__fadeInUp" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-01">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/Screenshot 2025-03-26 174313.png" srcset="images/Screenshot 2025-03-26 174313.png 2x" alt="Jagadish Transport & Services">
+                                    </div>
+                                    
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">Web App</div>
+                                        <div class="folio-list__item-title">Jagadish Transport & Services</div>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="folio-list__item column animate__animated animate__fadeInUp" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-02">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/fammstrend.png" srcset="images/fammstrend.png 2x" alt="Fammstrend">
+                                    </div>
+                                    
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">Static Website</div>
+                                        <div class="folio-list__item-title">Fammstrend</div>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="folio-list__item column animate__animated animate__fadeInUp" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-03">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/gloxyhosting.png" srcset="images/gloxyhosting.png 2x" alt="Gloxy Hosting">
+                                    </div>
+                                    
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">Web Application</div>
+                                        <div class="folio-list__item-title">Gloxy Hosting</div>
+                                    </div>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                        <!-- Modal Templates Popup -->
+                        <div id="modal-01" hidden>
+                            <div class="modal-overlay"></div>
+                            <div class="modal-popup">
+                                <button style="display: none;" class="modal-close" aria-label="Close modal"></button>
+                                <img src="images/Screenshot 2025-03-26 174313.png" alt="Jagadish Transport & Services">
+                
+                                <div class="modal-popup__desc">
+                                    <h5 class="slide-in-right">Jagadish Transport & Services</h5>
+                                    <p class="slide-in-right">A comprehensive web-based billing management system developed for a transport service provider. The system streamlines billing operations, manages customer data, and provides real-time reporting capabilities.</p>
+                                    <ul class="modal-popup__cat">
+                                        <li class="slide-in-right">Backend: Java, Spring Boot, Hibernate</li>
+                                        <li class="slide-in-right">Frontend: Thymeleaf, CSS, Bootstrap, JavaScript</li>
+                                        <li class="slide-in-right">Database: MySQL</li>
+                                        <li class="slide-in-right">Tools: Git, Eclipse, Maven</li>
+                                    </ul>
+                                    <a href="http://ec2-54-197-181-136.compute-1.amazonaws.com:8081/login" target="_blank" rel="noopener" class="modal-popup__details slide-in-right">
+                                        <i class="fas fa-external-link-alt"></i> View Live Project
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="modal-02" hidden>
+                            <div class="modal-overlay"></div>
+                            <div class="modal-popup">
+                                <button style="display: none;" class="modal-close" aria-label="Close modal"></button>
+                                <img src="images/fammstrend.png" alt="Fammstrend">
+                
+                                <div class="modal-popup__desc">
+                                    <h5 class="slide-in-right">Fammstrend</h5>
+                                    <p class="slide-in-right">A modern and responsive static website showcasing fashion and lifestyle content. Built with clean HTML and CSS, featuring a sleek design and smooth user experience.</p>
+                                    <ul class="modal-popup__cat">
+                                        <li class="slide-in-right">HTML5</li>
+                                        <li class="slide-in-right">CSS3</li>
+                                        <li class="slide-in-right">Responsive Design</li>
+                                        <li class="slide-in-right">Modern UI/UX</li>
+                                    </ul>
+                                    <a href="https://fammstrend.netlify.app" target="_blank" rel="noopener" class="modal-popup__details slide-in-right">
+                                        <i class="fas fa-external-link-alt"></i> View Live Project
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="modal-03" hidden>
+                            <div class="modal-overlay"></div>
+                            <div class="modal-popup">
+                                <button style="display: none;" class="modal-close" aria-label="Close modal"></button>
+                                <img src="images/gloxyhosting.png" alt="Gloxy Hosting">
+                
+                                <div class="modal-popup__desc">
+                                    <h5 class="slide-in-right">Gloxy Hosting</h5>
+                                    <p class="slide-in-right">A comprehensive web hosting platform featuring modern design and interactive elements. Built with HTML, CSS, Bootstrap, and JavaScript to create a seamless user experience.</p>
+                                    <ul class="modal-popup__cat">
+                                        <li class="slide-in-right">HTML5 & CSS3</li>
+                                        <li class="slide-in-right">Bootstrap</li>
+                                        <li class="slide-in-right">JavaScript</li>
+                                        <li class="slide-in-right">Responsive Design</li>
+                                        <li class="slide-in-right">Interactive UI</li>
+                                    </ul>
+                                    <a href="https://gloxyhosting.netlify.app" target="_blank" rel="noopener" class="modal-popup__details slide-in-right">
+                                        <i class="fas fa-external-link-alt"></i> View Live Project
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                </div> <!-- end works-portfolio -->
+
+
+                <div class="row testimonials">
+                    <div class="column lg-12" data-animate-block>
+        
+                        <div class="swiper-container testimonial-slider" data-animate-el>
+        
+                            <div class="swiper-wrapper">
+
+                                <div class="testimonial-slider__slide swiper-slide">
+                                    <div class="testimonial-slider__author">
+                                        <div class="testimonial-slider__avatar">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                            </svg>
+                                        </div>
+                                        <cite class="testimonial-slider__cite">
+                                            <strong>Rutvik Bedarkar</strong>
+                                            <span>Full Stack Developer, A2Z IT HUB</span>
+                                        </cite>
+                                    </div>
+                                    <p>
+                                    Working alongside Kunal at A2Z IT HUB has been an incredible experience. His expertise in Java and Spring Boot 
+                                    development is exceptional. He consistently delivers high-quality code and his problem-solving skills have 
+                                    been invaluable to our team. His collaborative approach and technical knowledge make him an outstanding developer.
+                                    </p>
+                                </div>
+                
+                                <div class="testimonial-slider__slide swiper-slide">
+                                    <div class="testimonial-slider__author">
+                                        <div class="testimonial-slider__avatar">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                            </svg>
+                                        </div>
+                                        <cite class="testimonial-slider__cite">
+                                            <strong>Ankush Pandit</strong>
+                                            <span>Senior Developer, A2Z IT HUB</span>
+                                        </cite>
+                                    </div>
+                                    <p>
+                                    Kunal's dedication to learning and implementing best practices in software development is remarkable. 
+                                    At A2Z IT HUB, he has shown great initiative in taking on complex projects and delivering them with 
+                                    precision. His ability to work with different technologies and adapt quickly makes him a valuable team member.
+                                    </p>
+                                </div>
+                
+                                <div class="testimonial-slider__slide swiper-slide">
+                                    <div class="testimonial-slider__author">
+                                        <div class="testimonial-slider__avatar">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                            </svg>
+                                        </div>
+                                        <cite class="testimonial-slider__cite">
+                                            <strong>Atharv Pimparkar</strong>
+                                            <span>Backend Developer, A2Z IT HUB</span>
+                                        </cite>
+                                    </div>
+                                    <p>
+                                    Kunal's technical skills and attention to detail are impressive. His work on the Jagadish Transport project 
+                                    demonstrated his ability to handle complex backend systems and create efficient solutions. His collaborative 
+                                    nature and willingness to help others make him a great team player.
+                                    </p>
+                                </div>
+        
+                                <div class="testimonial-slider__slide swiper-slide">
+                                    <div class="testimonial-slider__author">
+                                        <div class="testimonial-slider__avatar">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                            </svg>
+                                        </div>
+                                        <cite class="testimonial-slider__cite">
+                                            <strong>Pranav Jejurkar</strong>
+                                            <span>Frontend Developer, A2Z IT HUB</span>
+                                        </cite>
+                                    </div>
+                                    <p>
+                                    Working with Kunal on various projects has been a great learning experience. His understanding of both 
+                                    frontend and backend technologies allows him to create seamless full-stack solutions. His code is always 
+                                    clean, well-documented, and follows best practices.
+                                    </p>
+                                </div>
+
+                                <div class="testimonial-slider__slide swiper-slide">
+                                    <div class="testimonial-slider__author">
+                                        <div class="testimonial-slider__avatar">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                            </svg>
+                                        </div>
+                                        <cite class="testimonial-slider__cite">
+                                            <strong>Kunal Chavan</strong>
+                                            <span>Software Engineer, A2Z IT HUB</span>
+                                        </cite>
+                                    </div>
+                                    <p>
+                                    Kunal's expertise in Java development and his ability to solve complex problems efficiently have made 
+                                    him an invaluable member of our team. His dedication to writing clean, maintainable code and his 
+                                    willingness to mentor others have significantly contributed to our project's success.
+                                    </p>
+                                </div>
+
+                                <div class="testimonial-slider__slide swiper-slide">
+                                    <div class="testimonial-slider__author">
+                                        <div class="testimonial-slider__avatar">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                            </svg>
+                                        </div>
+                                        <cite class="testimonial-slider__cite">
+                                            <strong>Tushar Datir</strong>
+                                            <span>Full Stack Developer, A2Z IT HUB</span>
+                                        </cite>
+                                    </div>
+                                    <p>
+                                    Kunal's technical knowledge and problem-solving abilities are outstanding. His work on the Jagadish 
+                                    Transport project showcased his skills in creating robust and scalable applications. His attention to 
+                                    detail and commitment to quality make him a reliable developer.
+                                    </p>
+                                </div>
+            
+                            </div> <!-- end swiper-wrapper -->
+        
+                            <div class="swiper-pagination"></div>
+        
+                        </div> <!-- end swiper-container -->
+        
+                    </div> <!-- end column -->
+                </div> <!-- end row testimonials -->
+
+            </section> <!-- end s-works -->
+
+
+            <!-- ### contact
+            ================================================== -->
+            <section id="contact" class="s-contact target-section">
+
+                <div class="row contact-top">
+                    <div class="column lg-12">
+                        <h2 class="text-pretitle animate__animated animate__fadeInUp">
+                            Get In Touch
+                        </h2>
+
+                        <p class="h1 animate__animated animate__fadeInUp">
+                            Available for freelance projects, consulting, and full-time opportunities. Let's discuss how I can help bring your ideas to life!
+                        </p>
+                    </div>
+                </div> <!-- end contact-top -->
+
+                <div class="row contact-bottom">
+                    <div class="column lg-3 md-5 tab-6 stack-on-550 contact-block">
+                        <h3 class="text-pretitle animate__animated animate__fadeInUp">Contact Info</h3>
+                        <p class="contact-links animate__animated animate__fadeInUp" style="word-break: break-word;">
+                            <a href="mailto:kunalpatil192001@gmail.com" class="mailtoui"> kunalpatil192001@gmail.com</a><br>
+                            <a href="https://wa.me/918202605920">+91 8202605920</a>
+                        </p>
+                    </div>
+                    <div class="column lg-4 md-5 tab-6 stack-on-550 contact-block">
+                        <h3 class="text-pretitle animate__animated animate__fadeInUp">Social</h3>
+                        <ul class="contact-social animate__animated animate__fadeInUp">
+                            <li><a href="https://github.com/kunal96k" target="_blank" rel="noopener"><i class="fab fa-github social-icon"></i> GitHub</a></li>
+                            <li><a href="https://linkedin.com/in/kunal-patil-939753181" target="_blank" rel="noopener"><i class="fab fa-linkedin social-icon"></i> LinkedIn</a></li>
+                        </ul>
+                    </div>
+                    <div class="column lg-4 md-12 contact-block">
+                        <a href="mailto:kunalpatil192001@gmail.com" class="mailtoui btn btn--medium u-fullwidth contact-btn animate__animated animate__fadeInUp">
+                            <i class="fas fa-paper-plane"></i> Let's Talk
+                        </a>
+                        <button class="btn btn--medium u-fullwidth contact-btn resume-view-btn animate__animated animate__fadeInUp" id="resumeViewBtn" type="button" title="View Resume">
+                            <i class="fas fa-eye"></i> View Resume
+                        </button>
+                    </div>
+                </div> <!-- end contact-bottom -->
+                <div class="resume-popup-overlay" id="resumePopupOverlay"></div>
+                <div class="resume-popup" id="resumePopup">
+                    <button class="resume-popup-close" id="resumePopupClose" aria-label="Close Resume Preview">&times;</button>
+                    <img src="images/Resume_page.jpg" alt="Resume Preview" class="resume-popup-img" />
+                    <a href="Resume.pdf" target="_blank" class="resume-popup-fullview" rel="noopener">Open Full PDF</a>
+                </div>
+
+            </section> <!-- end contact -->
+
+        </main> <!-- end s-content -->
+
+
+        <!-- ## footer
+        ================================================== -->
+        <footer class="s-footer">
+
+            <div class="row">
+                <div class="column ss-copyright">
+                    <span>© Copyright Kunal Patil 2024</span> 
+                    <span>Full Stack Developer Portfolio</span>
+                </div>
+
+                <div class="ss-go-top">
+                    <a class="smoothscroll animate__animated animate__fadeIn floating" title="Back to Top" href="#top">
+                        <i class="fas fa-arrow-up"></i>
+                    </a>
+                </div>
+            </div>
+
+        </footer> <!-- end s-footer -->
+
+    </div> <!-- end -s-pagewrap -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        new WOW().init();
+        AOS.init({
+            duration: 800,
+            easing: 'ease',
+            once: true,
+            offset: 100
+        });
+        function showSkillName(el) {
+            // Hide all other skill names
+            document.querySelectorAll('.skill-name').forEach(e => { e.classList.remove('show'); });
+            // Show this one
+            const name = el.querySelector('.skill-name');
+            if (name) name.classList.add('show');
+        }
+        // Hide on click outside
+        window.addEventListener('click', function(e) {
+            if (!e.target.closest('.skill-logo')) {
+                document.querySelectorAll('.skill-name').forEach(e => { e.classList.remove('show'); });
+            }
+        });
+
+        const resumeBtn = document.getElementById('resumeViewBtn');
+        const resumePopup = document.getElementById('resumePopup');
+        const resumeOverlay = document.getElementById('resumePopupOverlay');
+        const resumeClose = document.getElementById('resumePopupClose');
+
+        function showResumePopup() {
+            resumePopup.classList.add('show');
+            resumeOverlay.classList.add('show');
+        }
+        function hideResumePopup() {
+            resumePopup.classList.remove('show');
+            resumeOverlay.classList.remove('show');
+        }
+        resumeBtn.addEventListener('click', showResumePopup);
+        resumeOverlay.addEventListener('click', hideResumePopup);
+        resumeClose.addEventListener('click', hideResumePopup);
+        // For mobile: hide popup on scroll
+        window.addEventListener('scroll', hideResumePopup);
+    </script>
+
+</body>
+</html>
