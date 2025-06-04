@@ -1,7 +1,6 @@
 # Kunal Patil - Professional Portfolio
 
 <div align="center">
-  <img src="images/Screenshot%202025-03-26%20174313.png" alt="Portfolio Preview" width="800"/>
   
   [![GitHub](https://img.shields.io/badge/GitHub-kunal96k-181717?style=for-the-badge&logo=github)](https://github.com/kunal96k)
   [![LinkedIn](https://img.shields.io/badge/LinkedIn-Kunal_Patil-0077B5?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/kunal-patil-939753181)
